@@ -1,0 +1,7 @@
+# Binary Search
+
+https://leetcode.com/explore/learn/card/binary-search[LeetCode Binary Search]
+
+https://en.wikipedia.org/wiki/Binary_search_algorithm[Wikipedia Binary Search Algorithm]
+
+https://www.youtube.com/watch?v=j5uXyPJ0Pew&list=PL2_aWCzGMAwL3ldWlrii6YeLszojgH77j&index=1[Mycodeschool Youtube]

@@ -1,0 +1,5 @@
+# Notes and links of DS and algorithms preparations
+
+https://medium.com/free-code-camp/how-to-think-like-a-programmer-lessons-in-problem-solving-d1d8bf1de7d2[ How to think like a programmer]
+
+https://www.youtube.com/watch?v=0IAPZzGSbME&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O[Alogrithms by Abdul Bari]
