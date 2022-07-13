@@ -13,13 +13,18 @@ public class DuplicateZerosInAnArray {
   static void duplicateZeros(int[] arr) {
     System.out.println("Input array:: " + Arrays.toString(arr));
     int len = arr.length;
-    for (int i = 0; i < len - 1; i++) {
+    if (len == 0) return;
+    for (int i = 0; i < len; i++) {
       if (arr[i] == 0) {
-        arr[i++] = 0;
-      } else {
-
+        // shift all elements to right from end
+        for (int j = len - 1; j > i; j--) {
+          arr[j] = arr[j - 1];
+          System.out.println("Inner Loop :: " + Arrays.toString(arr));
+        }
+        i++;
       }
+      System.out.println("\nOuter loop :: " + Arrays.toString(arr));
     }
-    System.out.println(Arrays.toString(arr));
+    System.out.println("\t\tFinal Output array :: " + Arrays.toString(arr));
   }
 }
