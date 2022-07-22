@@ -15,28 +15,27 @@ public class ValidParentheses {
     System.out.println(isValid("{[]}"));
   }
 
-  /*
-    public static boolean isValid(String s) {
-      Stack<Character> stack = new Stack<>();
-      char[] chars = s.toCharArray();
+  public static boolean isValid(String s) {
+    Stack<Character> stack = new Stack<>();
+    char[] chars = s.toCharArray();
 
-      for (char aChar : chars) {
-        if (aChar == '(' || aChar == '[' || aChar == '{') {
-          stack.push(aChar);
-        } else if (aChar == ')' && stack.peek() == '(' && !stack.isEmpty()) {
-          stack.pop();
-        } else if (aChar == ']' && stack.peek() == '[' && !stack.isEmpty()) {
-          stack.pop();
-        } else if (aChar == '}' && stack.peek() == '{' && !stack.isEmpty()) {
-          stack.pop();
-        } else {
-          return false;
-        }
+    for (char aChar : chars) {
+      if (aChar == '(' || aChar == '[' || aChar == '{') {
+        stack.push(aChar);
+      } else if (aChar == ')' && stack.peek() == '(' && !stack.isEmpty()) {
+        stack.pop();
+      } else if (aChar == ']' && stack.peek() == '[' && !stack.isEmpty()) {
+        stack.pop();
+      } else if (aChar == '}' && stack.peek() == '{' && !stack.isEmpty()) {
+        stack.pop();
+      } else {
+        return false;
       }
-      return stack.isEmpty();
     }
-  */
+    return stack.isEmpty();
+  }
 
+  /*
   public static boolean isValid(String s) {
 
     if (s.length() % 2 != 0) return false;
@@ -58,4 +57,5 @@ public class ValidParentheses {
 
     return stack.isEmpty();
   }
+   */
 }
