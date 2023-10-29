@@ -1,6 +1,6 @@
 package lp.codesignal;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class TestCodeSignal {
 
@@ -23,7 +23,16 @@ public class TestCodeSignal {
 
     // System.out.println(matrixElementsSum(new int[][] {{0, 1, 1, 2}, {0, 5, 0, 0}, {2, 0, 3,
     // 3}}));
-    System.out.println(matrixElementsSumV1(new int[][] {{0, 1, 1, 2}, {0, 5, 0, 0}, {2, 0, 3, 3}}));
+
+    // System.out.println(matrixElementsSumV1(new int[][] {{0, 1, 1, 2}, {0, 5, 0, 0}, {2, 0, 3,
+    // 3}}));
+
+    System.out.println(allLongestStrings(new String[] {"aba", "aa", "ad", "vcd", "aba"}));
+    //    System.out.println(allLongestStrings(new String []{"abc", "eeee", "abcd", "dcd"}));
+    //    System.out.println(allLongestStrings(new String []{"a", "abc", "cbd", "zzzzzz", "a",
+    // "abcdef", "asasa", "aaaaaa"}));
+    //    System.out.println(allLongestStrings(new String []{"enyky", "benyky", "yely",
+    // "varennyky"}));
   }
 
   static int maxProductV1(int[] inputArray) {
@@ -112,5 +121,9 @@ public class TestCodeSignal {
       }
     }
     return sum;
+  }
+
+  static String[] allLongestStrings(String[] inputArray) {
+    return new String[] {"1"};
   }
 }
