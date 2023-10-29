@@ -1,6 +1,7 @@
 package lp.codesignal;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 public class TestCodeSignal {
 
@@ -27,12 +28,16 @@ public class TestCodeSignal {
     // System.out.println(matrixElementsSumV1(new int[][] {{0, 1, 1, 2}, {0, 5, 0, 0}, {2, 0, 3,
     // 3}}));
 
-    System.out.println(allLongestStrings(new String[] {"aba", "aa", "ad", "vcd", "aba"}));
-    //    System.out.println(allLongestStrings(new String []{"abc", "eeee", "abcd", "dcd"}));
-    //    System.out.println(allLongestStrings(new String []{"a", "abc", "cbd", "zzzzzz", "a",
-    // "abcdef", "asasa", "aaaaaa"}));
-    //    System.out.println(allLongestStrings(new String []{"enyky", "benyky", "yely",
-    // "varennyky"}));
+    /*    System.out.println(Arrays.toString(allLongestStrings(new String[] {"aba", "aa", "ad", "vcd", "aba"})));
+       System.out.println(Arrays.toString(allLongestStrings(new String []{"abc", "eeee", "abcd", "dcd"})));
+       System.out.println(Arrays.toString(allLongestStrings(new String []{"a", "abc", "cbd", "zzzzzz", "a",
+    "abcdef", "asasa", "aaaaaa"})));
+       System.out.println(Arrays.toString(allLongestStrings(new String []{"enyky", "benyky", "yely",
+    "varennyky"})));*/
+
+    System.out.println(commonCharacterCount("aabcc","adcaa"));
+    System.out.println(commonCharacterCount("zzzz","zzzzzzz"));
+    System.out.println(commonCharacterCount("abca","xyzbac"));
   }
 
   static int maxProductV1(int[] inputArray) {
@@ -124,6 +129,43 @@ public class TestCodeSignal {
   }
 
   static String[] allLongestStrings(String[] inputArray) {
-    return new String[] {"1"};
+    Map<Integer, String> map = new HashMap<>();
+    Map<Integer, List<String>> nmap = new HashMap<>();
+    for (int i = 0; i<inputArray.length; i++){
+      if(!map.containsKey(inputArray[i].length())){
+        map.put(inputArray[i].length(), inputArray[i]);
+        List<String> list = new ArrayList<>();
+        list.add(inputArray[i]);
+        nmap.put(inputArray[i].length(), list);
+      }else {
+        List<String> strings = nmap.get(inputArray[i].length());
+        strings.add(inputArray[i]);
+      }
+      //System.out.println("Length: "+inputArray[i].length()+"\t "+inputArray[i]);
+      //map.put(inputArray[i].length(), inputArray[i]);
+      }
+
+    int maxKey = 0;
+    for(Entry<Integer, List<String>> keySet: nmap.entrySet()){
+      maxKey = Math.max(keySet.getKey(),maxKey);
+//      System.out.println(keySet);
+    }
+
+    List<String> strings = nmap.get(maxKey);
+/*
+    System.out.println(map);
+    System.out.println(nmap);
+    System.out.println("Answer::  "+strings);
+*/
+    String[] result = strings.stream().toArray(String[]::new);
+    return result;
+  }
+
+    static int commonCharacterCount(String s1, String s2) {
+    // Given two strings, find the number of common characters between them.
+    char[] c1 = s1.toCharArray();
+    char[] c2 = s2.toCharArray();
+
+    return 0;
   }
 }
