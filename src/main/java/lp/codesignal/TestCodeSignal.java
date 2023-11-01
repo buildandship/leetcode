@@ -1,5 +1,6 @@
 package lp.codesignal;
 
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -35,9 +36,22 @@ public class TestCodeSignal {
        System.out.println(Arrays.toString(allLongestStrings(new String []{"enyky", "benyky", "yely",
     "varennyky"})));*/
 
-    System.out.println(commonCharacterCount("aabcc","adcaa"));
+    /*   System.out.println(commonCharacterCount("aabcc","adcaa"));
     System.out.println(commonCharacterCount("zzzz","zzzzzzz"));
-    System.out.println(commonCharacterCount("abca","xyzbac"));
+    System.out.println(commonCharacterCount("abca","xyzbac"));*/
+
+    /*    System.out.println(isLucky(1230));
+    System.out.println(isLucky(239017));
+    System.out.println(isLucky(134008));*/
+
+    /*    System.out.println(Arrays.toString(sortByHeight(new int[]{-1, 150, 190, 170, -1, -1, 160, 180})));
+    System.out.println(Arrays.toString(sortByHeight(new int[]{23, 54, -1, 43, 1, -1, -1, 77, -1, -1, -1, 3})));
+    System.out.println(Arrays.toString(sortByHeight(new int[]{-1, -1, -1, -1, -1})));*/
+
+    System.out.println(reverseInParentheses("(bar)")); // rab
+    System.out.println(reverseInParentheses("foo(bar)baz")); // foorabbaz
+    System.out.println(reverseInParentheses("foo(bar)baz(blim)")); // foorabbazmilb
+    System.out.println(reverseInParentheses("foo(bar(baz))blim")); // foobazrabblim
   }
 
   static int maxProductV1(int[] inputArray) {
@@ -163,9 +177,109 @@ public class TestCodeSignal {
 
     static int commonCharacterCount(String s1, String s2) {
     // Given two strings, find the number of common characters between them.
-    char[] c1 = s1.toCharArray();
+    /* char[] c1 = s1.toCharArray();
     char[] c2 = s2.toCharArray();
 
-    return 0;
+    //brute force O(nxn)
+    int commonCount=0;
+    for(int i=0; i<c1.length; i++){
+      for(int j=0; j<c2.length; j++){
+        if(c1[i]==c2[j]){
+          commonCount++;
+          c1[i]=' ';
+          c2[j]=' ';
+          break;
+        }
+      }
+    }
+    return commonCount;*/
+
+    int[] s1array = new int[26];
+    int[] s2array = new int[26];
+
+    for (char c : s1.toCharArray()) {
+      s1array[c - 'a']++;
+    }
+    for (char c : s2.toCharArray()) {
+      s2array[c - 'a']++;
+    }
+    int count = 0;
+    for (int i = 0; i < 26; i++) {
+      count += Math.min(s1array[i], s2array[i]);
+    }
+    return count;
+  }
+
+  static boolean isLucky(int n) {
+    String ticketNumber = String.valueOf(n);
+    int sumLeft = 0;
+    int sumRight = 0;
+    if (ticketNumber.length() % 2 != 0) {
+      return false;
+    } else {
+      char[] nums = ticketNumber.toCharArray();
+      for (int i = 0, j = nums.length - 1; i < nums.length / 2; i++, j--) {
+        sumLeft += nums[i];
+        sumRight += nums[j];
+      }
+      return sumLeft == sumRight;
+    }
+  }
+
+  static int[] sortByHeight(int[] a) {
+    if (a != null && a.length != 0 && a.length != 1) {
+
+      int left = 0;
+      int right = a.length - 1;
+
+      while (left < right) {
+        if (a[left] == -1) {
+          left++;
+        } else if (a[right] == -1) {
+          right--;
+        } else {
+          insertionSort(a, left, right);
+          left++;
+          // right--;MISTAKE
+        }
+      }
+    }
+    return a;
+  }
+
+  private static void insertionSort(int[] a, int left, int right) {
+    for (int index = right; index >= left; index--) {
+      if (a[index] != -1 && a[index] < a[left]) {
+        swap(a, index, left);
+      }
+    }
+  }
+
+  private static void swap(int[] a, int left, int right) {
+    int temp = a[left];
+    a[left] = a[right];
+    a[right] = temp;
+  }
+
+  static String reverseInParentheses(String inputString) {
+    /**
+     * 1. Find last parenths "(" -> firstIndex 2. Find the next parenths ")", after firstIndex ->
+     * lastIndex 3. Reverse the String between firstIndex and lastIndex 4. Recreate the inputString
+     * with 1. First part => word from begin to firstIndex 2. Reverse part => String a step 3 3.
+     * Last part => word from lastIndex to end 5.Repeat steps 1 to 4 until there are no parenths
+     * left
+     */
+    int firstIndex = inputString.lastIndexOf("(");
+    int lastIndex = inputString.indexOf(")", firstIndex);
+    while (firstIndex != -1) {
+      String reverse =
+          new StringBuilder(inputString.substring(firstIndex + 1, lastIndex)).reverse().toString();
+      String firstPart = inputString.substring(0, firstIndex);
+      String lastPart = inputString.substring(lastIndex + 1);
+      inputString = firstPart + reverse + lastPart;
+      firstIndex = inputString.lastIndexOf("(");
+      lastIndex = inputString.indexOf(")", firstIndex);
+    }
+    return inputString;
   }
 }
