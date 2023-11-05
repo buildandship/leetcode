@@ -1,0 +1,17 @@
+Prerequisite
+1. List
+2. ArrayList
+3. DynamicList
+4. Arrays class
+5. HashMaps
+
+Questions:
+Contains Duplicate  =>Easy
+Valid Anagram   =>Easy
+Two Sum =>Easy
+Group Anagrams  =>Medium
+Top K Frequent Elements =>Medium
+Product of Array Except Self    =>Medium
+Valid Sudoku    =>Medium
+Encode and Decode Strings   =>Medium
+Longest Consecutive Sequence    =>Medium

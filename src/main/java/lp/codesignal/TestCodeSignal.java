@@ -48,10 +48,16 @@ public class TestCodeSignal {
     System.out.println(Arrays.toString(sortByHeight(new int[]{23, 54, -1, 43, 1, -1, -1, 77, -1, -1, -1, 3})));
     System.out.println(Arrays.toString(sortByHeight(new int[]{-1, -1, -1, -1, -1})));*/
 
-    System.out.println(reverseInParentheses("(bar)")); // rab
+    /*    System.out.println(reverseInParentheses("(bar)")); // rab
     System.out.println(reverseInParentheses("foo(bar)baz")); // foorabbaz
     System.out.println(reverseInParentheses("foo(bar)baz(blim)")); // foorabbazmilb
-    System.out.println(reverseInParentheses("foo(bar(baz))blim")); // foobazrabblim
+    System.out.println(reverseInParentheses("foo(bar(baz))blim")); // foobazrabblim*/
+
+    /*    System.out.println(Arrays.toString(alternatingSums(new int[]{50, 60, 60, 45, 70})));
+    System.out.println(Arrays.toString(alternatingSums(new int[]{100, 50, 50, 100})));*/
+
+    System.out.println(Arrays.toString(addBorder(new String[] {"abc", "ded"})));
+    System.out.println(Arrays.toString(addBorder(new String[] {"aa", "**", "zz"})));
   }
 
   static int maxProductV1(int[] inputArray) {
@@ -281,5 +287,25 @@ public class TestCodeSignal {
       lastIndex = inputString.indexOf(")", firstIndex);
     }
     return inputString;
+  }
+
+  static int[] alternatingSums(int[] a) {
+    if (a == null || a.length == 0 || a[0] == 0) {
+      return new int[] {0};
+    }
+    int[] sums = new int[2];
+    int sumEvenPosition = 0;
+    int sumOddPosition = 0;
+    for (int i = 0; i < a.length; i++) {
+      if (i % 2 == 0) sumEvenPosition += a[i];
+      if (i % 2 != 0) sumOddPosition += a[i];
+    }
+    sums[0] = sumEvenPosition;
+    sums[1] = sumOddPosition;
+    return sums;
+  }
+
+  static String[] addBorder(String[] picture) {
+    return new String[] {"*"};
   }
 }
