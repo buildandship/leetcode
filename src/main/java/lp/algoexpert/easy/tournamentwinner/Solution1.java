@@ -6,6 +6,6 @@ public class Solution1 {
   public String tournamentWinner(
       ArrayList<ArrayList<String>> competitions, ArrayList<Integer> results) {
     // Write your code here.
-    return "";
+    return "NO";
   }
 }
